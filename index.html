@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+	<style type="text/css">
+	#myDiv {
+		justify-content: center; /* 水平居中 */
+		align-items: center; /* 垂直居中 */
+		position:absolute;
+		display: flex;
+		font-size: 100px;
+		z-index:999;
+		color: #000000;
+		border-radius: 30px;
+		overflow-y:hidden;
+		overflow-x:hidden;
+		border-style: solid;
+		border-width: 20px;
+		border-color:#DDDDDD;
+		top: 50px;
+		left: 20px;
+		display = none;
+		padding: 0px;
+		width: 440px;
+		height: 110px;
+		animation-duration: 1s;
+		animation-name: slideOut;
+		animation-fill-mode: forwards;
+  }
+
+  #myDiv.exit {
+    animation-name:slideIn;
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(-120%); }
+    to { transform: translateX(0%); }
+  }
+
+  @keyframes slideOut {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-120%); }
+  }
+</style>
+
+</head>
+
+<body>
+	<button onclick="toggleAnimation()">切换</button>
+	<div id="myDiv"></div>
+
+
+<script>
+	var time = setInterval(myTimer, 1000);
+		function myTimer() {
+			var Hours = new Date();
+			var h = Hours.getHours();
+			var m = Hours.getMinutes();
+			m = m>9?m:"0"+m;
+			var s = Hours.getSeconds();
+			s = s>9?s:"0"+s;
+			document.getElementById("myDiv").innerHTML = h + ":" + m+ ":" + s;
+			var div = document.getElementById("myDiv");
+			if(m == 29 | m == 59){
+				if(s == 30){
+					div.classList.toggle("exit",true);
+	  				console.log(div.classList)
+				}
+			}else if(m == 30 | m == 00){
+				if(s == 30){
+					div.classList.toggle("exit",false);
+					console.log(div.classList)
+				}
+			}
+		}
+  function toggleAnimation() {
+	var div = document.getElementById("myDiv");
+    div.classList.toggle("exit");
+	  console.log(div.classList)
+  }
+</script>
+
+</body>
+</html>
