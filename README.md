@@ -1,7 +1,7 @@
 # Web-clock-for-OBS
 为OBS使用的整点报时弹窗时钟
 
-在obs的交互栏中，点击任意位置以切换伸缩状态
+在obs浏览器源的交互栏中，点击任意位置以切换伸缩状态
 
 #clock{font-family:"lolita";}
 
