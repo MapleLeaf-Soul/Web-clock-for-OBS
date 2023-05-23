@@ -7,7 +7,7 @@
 		body{
 			overflow: hidden;
 		}
-	#myDiv {
+	#clock {
 		justify-content: center; /* 水平居中 */
 		align-items: center; /* 垂直居中 */
 		position:absolute;
@@ -33,7 +33,7 @@
 		animation-fill-mode: forwards;
   }
 
-  #myDiv.exit {
+  #clock.exit {
     animation-name:slideIn;
   }
 
@@ -59,7 +59,7 @@
 
 <body>
 	<div id="click" onclick="toggleAnimation()"></div>
-	<div id="myDiv"></div>
+	<div id="clock"></div>
 
 
 <script>
@@ -71,8 +71,8 @@
 			m = m>9?m:"0"+m;
 			var s = Hours.getSeconds();
 			s = s>9?s:"0"+s;
-			document.getElementById("myDiv").innerHTML = h + ":" + m+ ":" + s;
-			var div = document.getElementById("myDiv");
+			document.getElementById("clock").innerHTML = h + ":" + m+ ":" + s;
+			var div = document.getElementById("clock");
 			if(m == 29 | m == 59){
 				if(s == 30){
 					div.classList.toggle("exit",true);
@@ -86,7 +86,7 @@
 			}
 		}
   function toggleAnimation() {
-	var div = document.getElementById("myDiv");
+	var div = document.getElementById("clock");
     div.classList.toggle("exit");
 	  console.log(div.classList)
   }
